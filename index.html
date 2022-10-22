@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OneMarcFifty</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <style>
+body {
+  background-color: lightgrey;
+}
+</style>
+</head>
+<body>
+
+<!-- --------------------------------- -->
+<!--The input forms -->
+<!-- --------------------------------- -->
+
+<div class="container">
+  <br>
+  <div class="well">
+    <h4> 
+      <div align="right">
+        <span class="label label-default">onemarcfifty</span>
+      </div> 
+      <div align="left">Door Access</div>
+    </h4>
+  </div>
+  <br>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">open door1</div>
+    <form class="form-inline" id="door1-form" method="post" action="/formdata">
+      <div class="panel-body">
+        <div class="form-group">
+          <label for="PIN">PIN:</label>
+          <input type="number" class="form-control" id="PIN" placeholder="123456" name="PIN">
+          <input id="mqtt" name="mqtt" value="rfid/door1/open" hidden="true">
+          <button onclick="submit()" class="btn btn-info">
+            <span class="glyphicon glyphicon-log-in"></span> open
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">open door2</div>
+    <form class="form-inline" id="door2-form" method="post" action="/formdata">
+      <div class="panel-body">
+        <div class="form-group">
+          <label for="PIN">PIN:</label>
+          <input type="number" class="form-control" id="PIN" placeholder="123456" name="PIN">
+          <input id="mqtt" name="mqtt" value="rfid/door2/open" hidden="true">
+          <button onclick="submit()" class="btn btn-info">
+            <span class="glyphicon glyphicon-log-in"></span> open
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+</div>
+
+</body></html>
