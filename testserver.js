@@ -12,15 +12,20 @@
 
 var fs = require('fs'); 
 var https = require('https'); 
+//var tls = require('tls'); 
 const { parse } = require('querystring');
 const { execSync } = require('child_process');
 
 var options = { 
+    hostname:           'testserver',
+    port:               8443,
     key:                fs.readFileSync('ca/server.key'),     // copy of letsencrypt or self signed
     cert:               fs.readFileSync('ca/server.crt'),     // copy of letsencrypt or self signed
     ca:                 fs.readFileSync('ca/ca.crt'),         // our self-signed ca (for the client cert)
 	  requestCert:        true,
-    rejectUnauthorized: true
+    rejectUnauthorized: true,
+    minVersion:         'TLSv1.3',
+    maxVersion:         'TLSv1.3'
 }; 
 
 // /////////////////////////////////////////
@@ -37,7 +42,8 @@ server.listen(8443),() => {
 // /////////////////////////////////////////
 
 
-server.on("request", (request, response) => {
+server.on("request", (request, response) => 
+{
 
   // log the request on the console
 
@@ -46,16 +52,14 @@ server.on("request", (request, response) => {
         request.socket.getPeerCertificate().subject.CN+' '+ 
         request.method+' '+request.url); 
 
-  var body = [];
 
   // request
 
   request
 
+
     .on("end", () => {
-      body = body.concat.toString();
       console.log("END");
-      //'end' event is raised once per request,
     }) // on end
 
     .on("error", () => {
@@ -67,9 +71,10 @@ server.on("request", (request, response) => {
     .on("data", chunk => {
       if (( "POST" == request.method ) && ("/formdata" == request.url )) 
       {
-        console.log("DATA");
+        console.log("DATA-POST START");
         console.log(chunk.toString());
         pinhandler(request,chunk);
+        console.log("DATA-POST END");
       } // if post
     }); // on data
 
