@@ -1,4 +1,7 @@
 # client-cert-test
+
+![language](https://img.shields.io/github/languages/top/onemarcfifty/client-cert-test)    ![License](https://img.shields.io/github/license/onemarcfifty/client-cert-test)    ![Last Commit](https://img.shields.io/github/last-commit/onemarcfifty/client-cert-test)     ![FileCount](https://img.shields.io/github/directory-file-count/onemarcfifty/client-cert-test)    ![Stars](https://img.shields.io/github/stars/onemarcfifty/client-cert-test)    ![Forks](https://img.shields.io/github/forks/onemarcfifty/client-cert-test)
+
 a simple nodejs web server that is using X.509 client certificates
 
 ## How to install
@@ -31,3 +34,7 @@ If you now browse to `https://testserver:8433/form`, then your browser should te
 ## How does this work
 
 We are using X.509 client certificates and TLS (Transport Layer Security) for this. If you want to edit the certificates using **XCA** then get XCA installed from [Christian Hohnstaedt's site](https://hohnstaedt.de/xca) and open the file `xca.db/xca.xdb` - it contains all certificates. The password for the file again is ***hello***
+
+## More Info
+
+The whole process is described in [This video on my youtube channel](https://www.youtube.com/watch?v=5lYQRuzdZr0)
