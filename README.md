@@ -23,7 +23,7 @@ then cd into the new directory and run the server:
 
 ## How to use it
 
-Now you can open a web browser and browse to the address of the nodejs app. Assuming that your server is called "testserver", browse to `https://testserver:8433/form` you will most probably get a certificate warning. In the `ca` subdirectory you can find a self-signed certificate authority (CA) that you can import into your browser. Alternatively - if you want to run this on a server with valid Let's encrypt certificates or the like, just replace the files `server.crt` and `server.key` with the certificate and private key of your "real" server. Don't replace the `ca.crt` file - it's used for client authentication!
+Now you can open a web browser and browse to the address of the nodejs app. Assuming that your server is called "testserver", browse to `https://testserver:8443/form` you will most probably get a certificate warning. In the `ca` subdirectory you can find a self-signed certificate authority (CA) that you can import into your browser. Alternatively - if you want to run this on a server with valid Let's encrypt certificates or the like, just replace the files `server.crt` and `server.key` with the certificate and private key of your "real" server. Don't replace the `ca.crt` file - it's used for client authentication!
 
 The files `server.crt` and `server.key` in the `ca` subdirectory have been signed with the `ca.crt` for testing purposes. If you want to test without certificate warning, then you could just make an entry into your host file and point `testserver` to any host, for example your localhost by addding the following into your `/etc/hosts` file (on Linux) or your `C:\Windows\System32\drivers\etc\hosts` file (on Windows):
 
